@@ -56,7 +56,7 @@ Optional Plotly PNG export requires `requirements-static.txt`, Kaleido and compa
 
 ## Validation and limitations
 
-Both workflows were tested locally with the author's private data. No private data or generated results are included. Path handling was made independent of the working directory. Direct dependency versions are recorded in `requirements.txt`. Full Excel calculation, optional Plotly PNG export, and GIS/education-outreach figure reproduction were not validated. 
+Both workflows were tested locally with the author's private data. No private data or generated results are included. Path handling was made independent of the working directory. Direct dependency versions are recorded in `requirements.txt`. Full Excel calculation, and GIS/education-outreach figure reproduction are not included. 
 
 
 ## Suggested manuscript wording
