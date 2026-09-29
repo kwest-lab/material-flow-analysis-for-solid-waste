@@ -1,2 +1,72 @@
-# material-flow-analysis-for-solid-waste
-Python scripts for visualizing material flows, greenhouse gas reductions, and the costs and benefits of waste diversion strategies.
+# SWACO waste diversion analysis scripts
+
+Python plotting scripts associated with *Material Flow Analysis-Based Approaches for Valuing Waste Diversion* by Narmada Ponnamperuma, Sarah McKenzie, and Daniel B. Gingerich.
+
+**This repository contains code only. The private SWACO workbooks, datasets, derived tables and figures are not distributed.** Users must supply their own compatible inputs. These scripts read saved Excel results and make plots; the Excel calculation model is not included, and Python does not recalculate its formulas. This repository therefore does not independently reproduce the study's numerical results.
+
+## Installation
+
+Use Python 3.12. In this folder:
+
+```sh
+python -m venv .venv
+```
+
+Activate on Windows PowerShell with `.venv\Scripts\Activate.ps1`, or on macOS/Linux with `source .venv/bin/activate`, then run:
+
+```sh
+python -m pip install -r requirements.txt
+```
+
+## Supply local inputs
+
+See [INPUT_SCHEMA.md](INPUT_SCHEMA.md) for required names and columns. Put your own files in this local structure:
+
+```text
+private_inputs/
+  Analysis/
+    costs analysis.xlsb.xlsx
+  Sankey Plotly/
+    data_V5.xlsx
+```
+
+Alternatively, set `SWACO_INPUT_DIR` to a local directory containing those `Analysis` and `Sankey Plotly` subfolders. Neither folder is supplied in the public package. The input filenames are retained for compatibility; no data are embedded in the repository.
+
+```sh
+python check_inputs.py
+python run_figures.py
+```
+
+Outputs go to `outputs/`, or to the directory set by `SWACO_OUTPUT_DIR`. Matplotlib plots are PNGs; Plotly plots are self-contained HTML. Both outputs and local inputs are excluded by `.gitignore`. **Generated HTML files contain plot data and must also remain private when the inputs are private.** GitHub's browser upload does not enforce `.gitignore`: upload only the files supplied in this code-only package, not files created by running it.
+
+Optional Plotly PNG export requires `requirements-static.txt`, Kaleido and compatible Chrome. Set `SWACO_STATIC_PLOTS=1` before running. This optional export was not tested.
+
+## Scripts
+
+| Script | Function |
+| --- | --- |
+| `scripts/plot_sankey.py` | Material-flow Sankey diagram and local node-position CSV. |
+| `scripts/plot_ghg.py` | GHG reductions by strategy. |
+| `scripts/plot_benefits_costs.py` | Revenue, monetized GHG benefits and annual costs. |
+| `scripts/plot_abatement_combined.py` | Two-panel abatement figure. |
+| `scripts/plot_abatement_separate.py` | Separate abatement panels. |
+| `scripts/plot_landfill_life.py` | Saved landfill-life contributions. |
+| `scripts/plot_v8_revision.py` | Separate V8 revision workflow. |
+
+Run a single script with, for example, `python scripts/plot_ghg.py`. Run the V8 revision workflow with `python run_figures.py --workflow v8`.
+
+The current and V8 workflows retain different treatments of mulching's monetized GHG contribution and abatement cost denominators. They are not interchangeable. The V8 script depends on fixed spreadsheet cell locations. The landfill-life units and all scientific assumptions must be checked against the final manuscript before reuse. No numerical model assumptions were changed during packaging. The obsolete Sankey layout key was updated to the existing input label `Contaminants` to fix a runtime error.
+
+## Validation and limitations
+
+Both workflows were tested locally against the author's private inputs. No private inputs or generated results are included. Path handling was made independent of the working directory. Direct dependency versions are recorded in `requirements.txt`. Full Excel recalculation, optional Plotly PNG export, and GIS/education-outreach figure reproduction were not validated. The final publication workflow still needs to be selected after manuscript revisions.
+
+## Reuse and citation
+
+The authors have not yet selected a code license. Add the chosen license and final GitHub/Zenodo citation before publishing the paper's release. No DOI is assigned in this package. Data access must follow the data owner's restrictions; this repository makes no commitment to supply the private data.
+
+## Suggested manuscript wording
+
+“The Python scripts used to generate the figures are available at [repository URL or DOI]. The underlying SWACO datasets are private and are not included in the repository.”
+
+This statement describes the plotting code accurately; it should not be expanded to claim that the full calculation model is included.

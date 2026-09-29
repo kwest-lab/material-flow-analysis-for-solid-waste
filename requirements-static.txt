@@ -1,0 +1,2 @@
+-r requirements.txt
+kaleido>=1,<2
