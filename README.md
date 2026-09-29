@@ -51,19 +51,13 @@ Optional Plotly PNG export requires `requirements-static.txt`, Kaleido and compa
 | `scripts/plot_abatement_combined.py` | Two-panel abatement figure. |
 | `scripts/plot_abatement_separate.py` | Separate abatement panels. |
 | `scripts/plot_landfill_life.py` | Saved landfill-life contributions. |
-| `scripts/plot_v8_revision.py` | Separate V8 revision workflow. |
 
-Run a single script with, for example, `python scripts/plot_ghg.py`. Run the V8 revision workflow with `python run_figures.py --workflow v8`.
 
-The current and V8 workflows retain different treatments of mulching's monetized GHG contribution and abatement cost denominators. They are not interchangeable. The V8 script depends on fixed spreadsheet cell locations. The landfill-life units and all scientific assumptions must be checked against the final manuscript before reuse. No numerical model assumptions were changed during packaging. The obsolete Sankey layout key was updated to the existing input label `Contaminants` to fix a runtime error.
 
 ## Validation and limitations
 
-Both workflows were tested locally against the author's private inputs. No private inputs or generated results are included. Path handling was made independent of the working directory. Direct dependency versions are recorded in `requirements.txt`. Full Excel recalculation, optional Plotly PNG export, and GIS/education-outreach figure reproduction were not validated. The final publication workflow still needs to be selected after manuscript revisions.
+Both workflows were tested locally with the author's private data. No private data or generated results are included. Path handling was made independent of the working directory. Direct dependency versions are recorded in `requirements.txt`. Full Excel calculation, optional Plotly PNG export, and GIS/education-outreach figure reproduction were not validated. 
 
-## Reuse and citation
-
-The authors have not yet selected a code license. Add the chosen license and final GitHub/Zenodo citation before publishing the paper's release. No DOI is assigned in this package. Data access must follow the data owner's restrictions; this repository makes no commitment to supply the private data.
 
 ## Suggested manuscript wording
 
