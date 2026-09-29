@@ -37,9 +37,9 @@ python check_inputs.py
 python run_figures.py
 ```
 
-Outputs go to `outputs/`, or to the directory set by `SWACO_OUTPUT_DIR`. Matplotlib plots are PNGs; Plotly plots are self-contained HTML. Both outputs and local inputs are excluded by `.gitignore`. **Generated HTML files contain plot data and must also remain private when the inputs are private.** GitHub's browser upload does not enforce `.gitignore`: upload only the files supplied in this code-only package, not files created by running it.
+Outputs go to `outputs/`, or to the directory set by `SWACO_OUTPUT_DIR`. Matplotlib plots are PNGs; Plotly plots are self-contained HTML. 
 
-Optional Plotly PNG export requires `requirements-static.txt`, Kaleido and compatible Chrome. Set `SWACO_STATIC_PLOTS=1` before running. This optional export was not tested.
+Optional Plotly PNG export requires `requirements-static.txt`, Kaleido and compatible Chrome. Set `SWACO_STATIC_PLOTS=1` before running. 
 
 ## Scripts
 
