@@ -58,9 +58,3 @@ Optional Plotly PNG export requires `requirements-static.txt`, Kaleido and compa
 
 Both workflows were tested locally with the author's private data. No private data or generated results are included. Path handling was made independent of the working directory. Direct dependency versions are recorded in `requirements.txt`. Full Excel calculation, and GIS/education-outreach figure reproduction are not included. 
 
-
-## Suggested manuscript wording
-
-“The Python scripts used to generate the figures are available at [repository URL or DOI]. The underlying SWACO datasets are private and are not included in the repository.”
-
-This statement describes the plotting code accurately; it should not be expanded to claim that the full calculation model is included.
